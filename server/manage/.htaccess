@@ -1,0 +1,10 @@
+<Files ~ "^\.(htaccess|htpasswd)$">
+deny from all
+</Files>
+AuthUserfile /var/www/html/manage/.htpasswd
+AuthGroupgfile /dev/null
+AuthName "Please ID and PASS."
+AuthType Basic
+require valid-user
+order deny,allow
+
