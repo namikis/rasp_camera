@@ -3,11 +3,12 @@
 ini_set("display_errors", 'On');
 error_reporting(E_ALL);
 
+require '/home/ec2-user/vendor/autoload.php';
+use Aws\S3\S3Client;
+use Aws\S3\Exception\S3Exception;
+
 $IMAGE_DIR = "../pictures/";
-
 $PAGE_TITLE = "静止画取得システム";
-
-$LIST_TEMP = "<li><a href=\"<!--URL-->\"><!--NAME--></li>";
 
 $HTML_BASE =<<<EOT
 <!DOCTYPE html>
@@ -102,33 +103,55 @@ $HTML_BASE =<<<EOT
 </html>
 EOT;
 
+$s3 = new S3Client([
+	'version' => 'latest',
+	'region' => 'ap-northeast-1'
+]);
+
 try {
 	$dsn = 'mysql:dbname=piPictures;host=localhost;charset=utf8';
-	$user = 'xxxx';
-	$password = 'xxxx';
+	$user = 'root';
+	$password = 'rasp0910';
 	$dbh = new PDO($dsn,$user,$password);
 	$dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-	$sql = "select pic_name from pictures where id = (select max(id) from pictures)";
+	$sql = "select pic_name,time_stamp from pictures where id = (select max(id) from pictures)";
 	$stmt = $dbh->prepare($sql);
 	$stmt->execute();
 	// $pic_name .= ".jpg";
 	$rec = $stmt->fetch(PDO::FETCH_ASSOC);
-	if($rec['pic_name'] == null){
+
+	if($rec == null){
 		$taken_time = "デフォルト";
 		$pic_name = 'default.png';
 	}else{
 		$taken_time = $rec['time_stamp'];
 		$pic_name = $rec['pic_name'] . ".jpg";
+
+		if(file_exists("../pictures/" . $pic_name)==false){ 
+			 array_map('unlink', glob("../pictures/*.jpg"));
+			 try {
+				$result = $s3->getObject([
+					'Bucket' => 'rasp-camera',
+					'Key' => 'pictures/' . $pic_name,
+					'SaveAs' => '../pictures/'.$pic_name,
+				]);
+
+			 } catch (S3Exception $e) {
+				echo $e->getMessage() . PHP_EOL;
+			 }
+		}
+
 	}
 } catch (PDOException $e) {
 	echo "データベースとの接続でエラーが発生：" . $e->getMessage() . "<br/>";
 }
 
-
+$file_path = $IMAGE_DIR . $pic_name;
+//$file_path = "../pictures/default.png";
 
 $output_html = str_replace( "<!--PAGE_TITLE-->", $PAGE_TITLE, $HTML_BASE);
 $output_html = str_replace("<!--TAKEN_TIME-->", $taken_time,$output_html);
-$output_html = str_replace( "<!--RECENT_PICTURE_PATH-->", $IMAGE_DIR.$pic_name, $output_html);
+$output_html = str_replace( "<!--RECENT_PICTURE_PATH-->", $file_path, $output_html);
 
 print $output_html;
