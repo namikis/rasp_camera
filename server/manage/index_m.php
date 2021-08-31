@@ -18,7 +18,7 @@ $HTML_BASE =<<<EOT
 	<title><!--PAGE_TITLE--></title>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    	<script>
+  <script>
 		function Reload(){
     	            window.location.reload();
     	        }
@@ -43,7 +43,47 @@ $HTML_BASE =<<<EOT
 		      $("#session_judge").text("connection failed, please starting socket_server.").css('color','red');
 		    }
         	})
-    	</script>
+  </script>
+	<style>
+				html,body,div,h1{
+					margin:0;
+					padding:0;
+				}
+				header{
+					background:lightblue;
+					color:white;
+					padding:20px;
+				}
+				.pic_wrapper,.button_wrapper{
+					text-align:center;
+				}
+				.pic_wrapper{
+					padding-top:50px;
+				}
+				.pic_wrapper img{
+					width:500px;
+					height:400px;
+				}
+				.whole_wrapper{
+					padding-bottom:50px ;
+					width:50%;
+					margin:0 auto;
+				}
+				.button_wrapper{
+					margin-top:20px;
+				}
+
+				#btn{
+					cursor:pointer;
+					font-size:50px;
+					background:lightblue;
+					border-radius:20px;
+					padding:10px 20px;
+				}
+				#btn:hover{
+					opacity:0.9;
+				}
+	</style>
 <head>
 <body>
 		<header>
@@ -60,46 +100,6 @@ $HTML_BASE =<<<EOT
 			</div>
 		</div>
 </body>
-<style>
-	html,body,div,h1{
-		margin:0;
-		padding:0;
-	}
-	header{
-		background:lightblue;
-		color:white;
-		padding:20px;
-	}
-	.pic_wrapper,.button_wrapper{
-		text-align:center;
-	}
-	.pic_wrapper{
-		padding-top:50px;
-	}
-	.pic_wrapper img{
-		width:500px;
-		height:400px;
-	}
-	.whole_wrapper{
-		padding-bottom:50px ;
-		width:50%;
-		margin:0 auto;
-	}
-	.button_wrapper{
-		margin-top:20px;
-	}
-
-	#btn{
-		cursor:pointer;
-		font-size:50px;
-		background:lightblue;
-		border-radius:20px;
-		padding:10px 20px;
-	}
-	#btn:hover{
-		opacity:0.9;
-	}
-</style
 </html>
 EOT;
 
@@ -128,7 +128,7 @@ try {
 		$taken_time = $rec['time_stamp'];
 		$pic_name = $rec['pic_name'] . ".jpg";
 
-		if(file_exists("../pictures/" . $pic_name)==false){ 
+		if(file_exists("../pictures/" . $pic_name)==false){
 			 array_map('unlink', glob("../pictures/*.jpg"));
 			 try {
 				$result = $s3->getObject([
