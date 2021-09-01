@@ -109,9 +109,9 @@ $s3 = new S3Client([
 ]);
 
 try {
-	$dsn = 'mysql:dbname=piPictures;host=localhost;charset=utf8';
-	$user = 'root';
-	$password = 'rasp0910';
+	$dsn = 'mysql:dbname=XXXX;host=localhost;charset=utf8';
+	$user = 'XXXX';
+	$password = 'XXXX';
 	$dbh = new PDO($dsn,$user,$password);
 	$dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 

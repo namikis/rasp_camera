@@ -40,14 +40,14 @@ try:
 	shutil.rmtree('temp_pictures')
 	os.mkdir('temp_pictures')
 	conn = pymysql.connect(
-		  user='root',
-		  password='rasp0910',
+		  user='XXXX',
+		  password='XXXX',
 		  host='35.76.184.39',
 		  charset='utf8mb4',
-		  db='piPictures'
+		  db='XXXX'
 	 	)
 	c = conn.cursor()
-	bucket = s3.Bucket('rasp-camera')
+	bucket = s3.Bucket('XXXX')
 
 	print("connection successed.")
 
