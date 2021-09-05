@@ -70,7 +70,7 @@ $HTML_BASE =<<<EOT
 					margin:0 auto;
 				}
 				.button_wrapper{
-					margin-top:20px;
+					margin:20px 0 30px 0;
 				}
 
 				#btn{
@@ -98,6 +98,7 @@ $HTML_BASE =<<<EOT
 			<div class="button_wrapper">
 				<i id="btn" class="fas fa-camera-retro"></i>
 			</div>
+			<a href="/manage/list.php">一覧・管理画面へ</a>
 		</div>
 </body>
 </html>
