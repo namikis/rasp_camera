@@ -17,6 +17,7 @@ $HTML_BASE =<<<EOT
 	<meta charset="UTF-8">
 	<title><!--PAGE_TITLE--></title>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+	<link rel="stylesheet" href="../main.css">
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script>
 		function Reload(){
@@ -44,46 +45,6 @@ $HTML_BASE =<<<EOT
 		    }
         	})
   </script>
-	<style>
-				html,body,div,h1{
-					margin:0;
-					padding:0;
-				}
-				header{
-					background:lightblue;
-					color:white;
-					padding:20px;
-				}
-				.pic_wrapper,.button_wrapper{
-					text-align:center;
-				}
-				.pic_wrapper{
-					padding-top:50px;
-				}
-				.pic_wrapper img{
-					width:500px;
-					height:400px;
-				}
-				.whole_wrapper{
-					padding-bottom:50px ;
-					width:50%;
-					margin:0 auto;
-				}
-				.button_wrapper{
-					margin:20px 0 30px 0;
-				}
-
-				#btn{
-					cursor:pointer;
-					font-size:50px;
-					background:lightblue;
-					border-radius:20px;
-					padding:10px 20px;
-				}
-				#btn:hover{
-					opacity:0.9;
-				}
-	</style>
 <head>
 <body>
 		<header>

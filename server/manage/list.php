@@ -18,46 +18,13 @@
      <title><!--PAGE_TITLE--></title>
      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
      <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-     <style>
-                 html,body,div,h1{
-                     margin:0;
-                     padding:0;
-                 }
-                 header{
-                     background:lightblue;
-                     color:white;
-                     padding:20px;
-                 }
-                 .whole_wrapper{
-                     padding-bottom:50px;
-                     margin:0 auto;
-                     width:70%;
-                 }
-                 .pictures{
-                     display:flex;
-                     flex-wrap:wrap;
-                 }
-                 .picture{
-                     margin:10px;
-                 }
-                 .pic_image img{
-                     width:200px;
-                     height:200px;
-                 }
-                 .del_button{
-                     margin:10px;
-                     text-align:center;
-                 }
-                 .back_link{
-                     margin:10px;
-                 }
-     </style>
+     <link rel="stylesheet" href="../main.css">
  <head>
  <body>
          <header>
              <h1><!--PAGE_TITLE--></h1>
          </header>
-         <div class="whole_wrapper">
+         <div class="list_wrapper">
          <div class="back_link"><a href="/manage/index_m.php">戻る</a></div>
          <form method="post" action="delete.php">
             <div class="pictures">

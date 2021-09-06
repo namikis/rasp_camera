@@ -16,46 +16,7 @@ $HTML_BASE =<<<EOT
 <head>
 	<meta charset="UTF-8">
 	<title><!--PAGE_TITLE--></title>
-	<style>
-		html,body,div,h1{
-			margin:0;
-			padding:0;
-		}
-		header{
-			background:lightblue;
-			color:white;
-			padding:20px;
-		}
-		.pic_wrapper,.button_wrapper{
-			text-align:center;
-		}
-		.pic_wrapper{
-			padding-top:50px;
-		}
-		.pic_wrapper img{
-			width:500px;
-			height:400px;
-		}
-		.whole_wrapper{
-			padding-bottom:50px ;
-			width:50%;
-			margin:0 auto;
-		}
-		.button_wrapper,.to_manage{
-			margin-top:20px;
-		}
-
-		#btn{
-			cursor:pointer;
-			font-size:50px;
-			background:lightblue;
-			border-radius:20px;
-			padding:10px 20px;
-		}
-		#btn:hover{
-			opacity:0.9;
-		}
-	</style
+	<link rel="stylesheet" href="main.css">
 <head>
 <body>
 		<header>
