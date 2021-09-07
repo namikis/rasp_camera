@@ -18,6 +18,7 @@ $HTML_BASE =<<<EOT
 	<title><!--PAGE_TITLE--></title>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
 	<link rel="stylesheet" href="../main.css">
+	<link rel="icon" href="../pictures/cam_icon.png">
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script>
 		function Reload(){

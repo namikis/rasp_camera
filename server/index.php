@@ -17,6 +17,7 @@ $HTML_BASE =<<<EOT
 	<meta charset="UTF-8">
 	<title><!--PAGE_TITLE--></title>
 	<link rel="stylesheet" href="main.css">
+	<link rel="icon" href="pictures/cam_icon.png">
 <head>
 <body>
 		<header>

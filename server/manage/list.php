@@ -19,6 +19,7 @@
      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
      <script src="http://code.jquery.com/jquery-latest.min.js"></script>
      <link rel="stylesheet" href="../main.css">
+     <link rel="icon" href="../pictures/cam_icon.png">
  <head>
  <body>
          <header>
