@@ -30,7 +30,7 @@ $HTML_BASE =<<<EOT
 
 	            $('#btn').on('click',function(){
 	              ws.send($('#btn').text());
-		      window.setTimeout(Reload,1000);
+		      window.setTimeout(Reload,1500);
 		      console.log("reloaded.");
 	            });
 

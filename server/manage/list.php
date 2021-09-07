@@ -85,6 +85,10 @@
  } catch (PDOException $e) {
      echo "データベースとの接続でエラーが発生：" . $e->getMessage() . "<br/>";
  }
+
+ if($pic_div == ""){
+     $pic_div = "<p class='no_picture' style='font-size:20px; padding:20px;'>まだ写真が撮影されていません。</p>";
+ }
   
  $output_html = str_replace( "<!--PAGE_TITLE-->", $PAGE_TITLE, $HTML_BASE);
  $output_html = str_replace( "<!--PICTURE_DIV-->", $pic_div, $output_html);
